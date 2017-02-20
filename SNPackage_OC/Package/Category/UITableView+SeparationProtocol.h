@@ -91,11 +91,11 @@ typedef NSArray<UITableViewRowAction *>* (^rowActionsTableIndex)(UITableView*,NS
 - (void)sn_setEstimatedHeightForFooter:(heightSetByIntBlock)info;
 @property (nonatomic, copy) heightSetByIntBlock sn_footerEstimatedHeightBlock;
 
-- (void)sn_setHeaderView:(viewTableIntBlock)info;
-@property (nonatomic, copy) viewTableIntBlock sn_headerViewBlock;
+- (void)sn_setSectionHeaderView:(viewTableIntBlock)info;
+@property (nonatomic, copy) viewTableIntBlock sn_sectionHeaderViewBlock;
 
-- (void)sn_setFooterView:(viewTableIntBlock)info;
-@property (nonatomic, copy) viewTableIntBlock sn_footerViewBlock;
+- (void)sn_setSectionFooterView:(viewTableIntBlock)info;
+@property (nonatomic, copy) viewTableIntBlock sn_sectionFooterViewBlock;
 
 - (void)sn_accessoryButtonTappedRow:(tableIndexBlock)info;
 @property (nonatomic, copy) tableIndexBlock sn_accessoryButtonTapBlock;

@@ -568,24 +568,24 @@
 
 
 
-- (void)sn_setHeaderView:(viewTableIntBlock)info {
-    objc_setAssociatedObject(self, @selector(sn_setHeaderView:), info, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)sn_setSectionHeaderView:(viewTableIntBlock)info {
+    objc_setAssociatedObject(self, @selector(sn_setSectionHeaderView:), info, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (viewTableIntBlock)sn_headerViewBlock {
-    return objc_getAssociatedObject(self, @selector(sn_footerEstimatedHeightBlock));
+- (viewTableIntBlock)sn_sectionHeaderViewBlock {
+    return objc_getAssociatedObject(self, @selector(sn_sectionHeaderViewBlock));
 }
 
-- (void)setSn_headerViewBlock:(viewTableIntBlock)sn_headerViewBlock {
-    objc_setAssociatedObject(self, @selector(sn_headerViewBlock), sn_headerViewBlock, OBJC_ASSOCIATION_COPY);
+- (void)setSn_sectionHeaderViewBlock:(viewTableIntBlock)sn_sectionHeaderViewBlock {
+    objc_setAssociatedObject(self, @selector(sn_sectionHeaderViewBlock), sn_sectionHeaderViewBlock, OBJC_ASSOCIATION_COPY);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    if (self.sn_headerViewBlock ) {
-        return self.sn_headerViewBlock(tableView, section);
-    } else if ([self respondsToSelector:@selector(sn_setHeaderView:)]) {
-        viewTableIntBlock block = objc_getAssociatedObject(self, @selector(sn_setHeaderView:));
+    if (self.sn_sectionHeaderViewBlock ) {
+        return self.sn_sectionHeaderViewBlock(tableView, section);
+    } else if ([self respondsToSelector:@selector(sn_setSectionHeaderView:)]) {
+        viewTableIntBlock block = objc_getAssociatedObject(self, @selector(sn_setSectionHeaderView:));
         if (block) {
             return block(tableView, section);
         } else {
@@ -596,25 +596,23 @@
     }
 }
 
-
-
-- (void)sn_setFooterView:(viewTableIntBlock)info {
-    objc_setAssociatedObject(self, @selector(sn_setFooterView:), info, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)sn_setSectionFooterView:(viewTableIntBlock)info {
+    objc_setAssociatedObject(self, @selector(sn_setSectionFooterView:), info, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (viewTableIntBlock)sn_footerViewBlock {
-    return objc_getAssociatedObject(self, @selector(sn_footerViewBlock));
+- (viewTableIntBlock)sn_sectionFooterViewBlock {
+    return objc_getAssociatedObject(self, @selector(sn_sectionFooterViewBlock));
 }
 
-- (void)setSn_footerViewBlock:(viewTableIntBlock)sn_footerViewBlock {
-    objc_setAssociatedObject(self, @selector(sn_footerViewBlock), sn_footerViewBlock, OBJC_ASSOCIATION_COPY);
+- (void)setSn_sectionFooterViewBlock:(viewTableIntBlock)sn_sectionFooterViewBlock {
+    objc_setAssociatedObject(self, @selector(sn_sectionFooterViewBlock), sn_sectionFooterViewBlock, OBJC_ASSOCIATION_COPY);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (self.sn_footerViewBlock ) {
-        return self.sn_footerViewBlock(tableView, section);
-    } else if ([self respondsToSelector:@selector(sn_setFooterView:)]) {
-        viewTableIntBlock block = objc_getAssociatedObject(self, @selector(sn_setFooterView:));
+    if (self.sn_sectionFooterViewBlock ) {
+        return self.sn_sectionFooterViewBlock(tableView, section);
+    } else if ([self respondsToSelector:@selector(sn_setSectionFooterView:)]) {
+        viewTableIntBlock block = objc_getAssociatedObject(self, @selector(sn_setSectionFooterView:));
         if (block) {
             return block(tableView, section);
         } else {
