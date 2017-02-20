@@ -11,18 +11,18 @@
 typedef NSInteger (^intergerBlock)();
 typedef NSString *(^stringBlock)(NSInteger );
 typedef NSInteger (^rowNumberBlock)(NSInteger);
-typedef UITableViewCell *(^tableViewCellBlock)(UITableView*, NSIndexPath*);
-typedef BOOL (^boolBlock)(UITableView*, NSIndexPath*);
-typedef void (^tableCellIndexInfoBlock)(UITableView*,UITableViewCell*, NSIndexPath*);
-typedef void (^tableViewSectionInfoBlock)(UITableView*, UIView*, NSInteger);
-typedef CGFloat (^heightSetByIndexBlock)(UITableView *,NSIndexPath*);
-typedef CGFloat (^heightSetByIntBlock)(UITableView *,NSInteger);
-typedef UIView *(^viewTableIntBlock)(UITableView*, NSInteger);
-typedef void (^tableIndexBlock)(UITableView*,NSIndexPath*);
-typedef NSIndexPath *(^indexTableIndex)(UITableView*,NSIndexPath*);
-typedef UITableViewCellEditingStyle (^cellEditStyleTableIndexBlock)(UITableView*,NSIndexPath*);
-typedef NSString *(^stringTableIndexBlock)(UITableView*,NSIndexPath*);
-typedef NSArray<UITableViewRowAction *>* (^rowActionsTableIndex)(UITableView*,NSIndexPath*);
+typedef UITableViewCell *(^tableViewCellBlock)(UITableView *tableView, NSIndexPath *indexPath);
+typedef BOOL (^boolBlock)(UITableView *tableView, NSIndexPath *indexPath);
+typedef void (^tableCellIndexInfoBlock)(UITableView *tableView,UITableViewCell *cell, NSIndexPath *indexPath);
+typedef void (^tableViewSectionInfoBlock)(UITableView *tableView, UIView *view, NSInteger section);
+typedef CGFloat (^heightSetByIndexBlock)(UITableView *tableView,NSIndexPath *indexPath);
+typedef CGFloat (^heightSetByIntBlock)(UITableView *tableView,NSInteger section);
+typedef UIView *(^viewTableIntBlock)(UITableView *tableView, NSInteger indexPath);
+typedef void (^tableIndexBlock)(UITableView *tableView,NSIndexPath *indexPath);
+typedef NSIndexPath *(^indexTableIndex)(UITableView *tableView,NSIndexPath *indexPath);
+typedef UITableViewCellEditingStyle (^cellEditStyleTableIndexBlock)(UITableView *tableView,NSIndexPath *indexPath);
+typedef NSString *(^stringTableIndexBlock)(UITableView *tableView,NSIndexPath *indexPath);
+typedef NSArray<UITableViewRowAction *>* (^rowActionsTableIndex)(UITableView *tableView, NSIndexPath* indexPath);
 
 @interface UITableView (SeparationProtocol)<UITableViewDataSource,UITableViewDelegate>
 
